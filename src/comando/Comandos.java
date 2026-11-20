@@ -14,7 +14,6 @@ public class Comandos {
         void deshacer() throws TiendaException;
         String getDescripcion();
 
-        // Por defecto todo se puede deshacer; confirmar compra lo sobrescribe
         default boolean esDeshacible() {
             return true;
         }
@@ -154,8 +153,6 @@ public class Comandos {
             return "Confirmar compra";
         }
     }
-
-    // Invoker: no sabe que hace cada comando, solo los ejecuta y guarda el historial en una pila
     public static class ControlRemoto {
         private final Stack<Comando> historial = new Stack<>();
 
@@ -166,7 +163,6 @@ public class Comandos {
                 if (comando.esDeshacible()) {
                     historial.push(comando);
                 } else {
-                    // Tras confirmar la compra, lo anterior ya no se puede revertir
                     historial.clear();
                 }
             } catch (TiendaException e) {
