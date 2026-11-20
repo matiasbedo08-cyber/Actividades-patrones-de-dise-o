@@ -58,7 +58,6 @@ public class Estrategias {
             double total = 0;
             for (ItemCarrito item : items) {
                 int cantidad = item.getCantidad();
-                // De cada 2 unidades se paga 1; si sobra una, se paga completa
                 int pagadas = cantidad / 2 + cantidad % 2;
                 total += item.getProducto().getPrecio() * pagadas;
             }
