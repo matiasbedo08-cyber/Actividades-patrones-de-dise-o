@@ -45,7 +45,6 @@ public class Observadores {
 
         @Override
         public void actualizar(String evento, String detalle) {
-            // Al cliente solo le interesan las promociones
             if (evento.equals("PROMOCION")) {
                 System.out.println("   [Notificacion a " + nombre + "] Nueva promocion: " + detalle);
             }
@@ -61,7 +60,6 @@ public class Observadores {
 
         @Override
         public void actualizar(String evento, String detalle) {
-            // El administrador atiende ventas e inventario, no promociones
             if (evento.equals("COMPRA") || evento.equals("STOCK_BAJO")) {
                 System.out.println("   [Admin " + nombre + "] " + evento + ": " + detalle);
             }
