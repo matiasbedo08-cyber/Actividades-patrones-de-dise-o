@@ -76,7 +76,6 @@ public class TiendaService {
         carrito.clear();
     }
 
-    // Copias de los items para que el comando pueda respaldar el estado
     public List<ItemCarrito> obtenerItems() {
         List<ItemCarrito> copia = new ArrayList<>();
         for (ItemCarrito i : carrito.values()) {
